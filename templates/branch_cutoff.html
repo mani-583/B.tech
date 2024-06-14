@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Branch Cutoff</title>
+        <link rel="icon" href="/static/images/branch_cutoff.png" type="image/x-icon" />
+        <link rel="stylesheet" href="/static/styles/branch_cutoff.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="logo"> 
+                <a href="/">
+                    <img src="/static/images/logo.png" alt="Btech Explorer Logo" />
+                </a>
+            </div>
+            <div class="links">
+                <a href="/">Home</a>
+                <a href="/college_predictor">College Predictor</a>
+                <a href="/probable_colleges">Probable Colleges</a>
+                <a href="/branch_cutoff">Branch Cutoff</a>
+                <a href="/explore_colleges">Explore Colleges</a>
+            </div>
+        </header>
+
+        <section>
+            <h1>Branch Cutoff</h1>
+            
+            <div class="side">
+                    <div class="down">
+                        <form action = "/branch_cutoff" method="POST" id="predictionForm">
+                            <div class="form-row">
+                                <div class="gen">
+                                    <label for="cname" id="rid"><b>College</b></label>
+                                    <input
+                                        type="text"
+                                        id="rank"
+                                        name="college-code"
+                                        placeholder="Enter College Code"
+                                        required
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="gen">
+                                    <label for="gender" id="gid"
+                                        ><b>Gender</b></label
+                                    >
+                                    <select id="gender" name="gender"  required>
+                                        <option value="" disabled selected>--SELECT--</option>
+                                        <option name="male">MALE</option>
+                                        <option name="female">FEMALE</option>
+                                    </select>
+ 
+                                    <label for="category" id="cid"
+                                        ><b>Category</b></label
+                                    >
+                                    <select id="category" name="category" required>
+                                        <option value="" disabled selected>--SELECT--</option>
+                                        <option name="oc">OC</option>
+                                        <option name="sc">SC</option>
+                                        <option name="st">ST</option>
+                                        <option name="BC-A">BC-A</option>
+                                        <option name="BC-B">BC-B</option>
+                                        <option name="BC-C">BC-C</option>
+                                        <option name="BC-D">BC-D</option>
+                                        <option name="BC-E">BC-E</option>
+                                    </select>
+                                </div>
+                            </div>
+ 
+                            <button type="submit" class="primary">
+                                Predict Admission
+                            </button>
+                        </form>
+                    </div>
+                   {% if plot_data %}
+                        <img src="{{ plot_data }}" alt="Cutoff Ranks Graph">
+                        {% endif %}
+            </div>
+        </section>
+    </body>
+</html>
